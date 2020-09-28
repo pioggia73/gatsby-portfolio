@@ -1,29 +1,27 @@
-import React from "react";
+import React from 'react';
 import {graphql} from 'gatsby';
-// ***** components ***** //
+import styled from 'styled-components';
+//***** components  ******/
 import Layout from '../components/Layout';
-import Hero from '../components/Hero';
 import Projects from '../components/Projects';
-// ****** pages ****** //
-import Courses from './courses';
 
-export default ({data}) => {
-
-  const {allStrapiProjects:{nodes:projects}} = data;
- 
-  return (
+const ProjectsPage = ({
+  data: {allStrapiProjects:{ nodes:projects },},
+}) => { 
+    return (
+      <Wrapper>
           <Layout>
-            <Hero />
-            <Projects projects={projects} title='featured projects' showLink />
-            <Courses />
+            <section className='projects-page'>
+              <Projects projects={projects} title='all projects'/>
+            </section>
           </Layout>
-  )
+      </Wrapper>
+    )
 };
-
 
 export const query = graphql`
   {
-    allStrapiProjects(filter: {featured: {eq: true}}) {
+    allStrapiProjects {
       nodes {
         github
         id
@@ -45,3 +43,10 @@ export const query = graphql`
     }
   }
 `
+
+const Wrapper = styled.section`
+
+
+`
+
+export default ProjectsPage;
