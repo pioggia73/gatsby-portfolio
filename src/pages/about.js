@@ -28,7 +28,7 @@ const About = () => {
          <section className="about section">
            <div className="section-center about-center">
              <article className="about-info">
-                
+                <div className='underline'></div>
                    <p>
                      Lorem Ipsum is simply dummy text of the printing and
                      typesetting industry. Lorem Ipsum has been the industry's
@@ -56,7 +56,7 @@ const About = () => {
 
 const Wrapper = styled.section`
   .about {
-    margin-top: -5rem;
+    /* margin-top: -5rem; */
     padding-top: 5rem;
     height: 100vh;
     background: var(--clr-primary-10);
@@ -77,6 +77,10 @@ const Wrapper = styled.section`
   .about-info p {
     line-height: 3rem;
     margin-top: 2rem;
+  };
+
+  .about-info .underline {
+    margin-left: 0;
   }
 
   .about-img {
@@ -107,10 +111,17 @@ const Wrapper = styled.section`
       display: block;
       grid-row: 1/1;
       grid-column: 6/-1;
+      position: relative;
     }
 
-    .monika {
-      border: solid 1rem var(--clr-primary-5);
+    .about-img::before {
+      content: "";
+      position: absolute;
+      background: var(--clr-primary-5);
+      height: 100%;
+      width: 100%;
+      top: -2rem;
+      left: 4rem;
     }
   }
 
@@ -130,10 +141,9 @@ const Wrapper = styled.section`
       grid-column: 8 / -1;
     };
 
-    
-
-  
-
+    .monika {
+      position: relative;
+    }
   };
 `
 

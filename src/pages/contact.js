@@ -50,9 +50,9 @@ const Contact = () => {
 const Wrapper = styled.section`
   .contact-page {
     display: flex;
-    /* place-items: center; */
+    /* place-items: center;  */
     height: 100vh;
-    margin-top: -5rem;
+    /* margin-top: -5rem; */
     justify-content:center;
     align-items: center;
   };

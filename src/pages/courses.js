@@ -71,7 +71,7 @@ const Courses = () => {
 
 const Wrapper = styled.section`
   .courses-center {
-    width: 88vw;
+    width: 90vw;
     margin: 0 auto;
     max-width: var(--max-width);
   };

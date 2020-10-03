@@ -1,7 +1,9 @@
 import React from 'react';
-import Links from '../constants/links';
 import styled from 'styled-components';
+import Links from '../constants/links';
+import SocialLinks from '../constants/socialLinks';
 import {FaTimes} from 'react-icons/fa';
+
 
 const Sidebar = ({isOpen, toggleSidebar}) => {
 
@@ -13,6 +15,7 @@ const Sidebar = ({isOpen, toggleSidebar}) => {
          </button>
          <div className='side-container'>
             <Links styleClass= {`${isOpen ? 'sidebar-links' : ''}`} />
+            <SocialLinks styleClass = {`${isOpen ? 'sidebar-icons' : ''}`} />
          </div>
       </aside>
       </Wrapper>
@@ -73,7 +76,7 @@ const Wrapper = styled.div`
   };
 
   .sidebar-links li {
-    animation: slideRight 0.5s ease-in-out 0.3s forwards;
+    animation: slideRight 0.5s ease-in-out .3s forwards;
   };
   .sidebar-links li:nth-of-type(1) {
     animation-delay: 0.25s;
@@ -98,9 +101,14 @@ const Wrapper = styled.div`
       opacity: 1;
     }
   }
+
+  /* ---------------------------------------------------/
+  icons animation 
+  ------------------------------------------------------- */
+  
   .sidebar-icons li {
     opacity: 0;
-    animation: slideUp 0.5s ease-in-out 0.3s forwards;
+    animation: slideUp .5s ease-in-out .3s forwards;
   }
   .sidebar-icons li:nth-of-type(1) {
     animation-delay: 0.25s;
@@ -111,12 +119,17 @@ const Wrapper = styled.div`
   .sidebar-icons li:nth-of-type(3) {
     animation-delay: 0.75s;
   }
-  .sidebar-icons li:nth-of-type(4) {
-    animation-delay: 1s;
+  
+  @keyframes slideUp {
+  0% {
+    transform: translateY(200px);
+    opacity: 0;
   }
-  .sidebar-icons li:nth-of-type(5) {
-    animation-delay: 1.25s;
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
+}
 
   @media screen and (min-width: 992px) {
     .sidebar {

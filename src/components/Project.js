@@ -33,11 +33,10 @@ const Project = ({description, url, title, github, stack_item, image, index}) =>
 };
 
 const Wrapper = styled.div`
-
   .project {
     display: grid;
     margin-bottom: 4rem;
-  };
+  }
 
   .project-img {
     border-top-left-radius: var(--radius);
@@ -45,7 +44,8 @@ const Wrapper = styled.div`
     height: 19rem;
     z-index: 1;
     margin-bottom: 2rem;
-  };
+    position: relative;
+  }
 
   .project-img::after {
     content: "";
@@ -57,10 +57,11 @@ const Wrapper = styled.div`
     background: linear-gradient(to bottom right, var(--clr-primary-5), #222);
     opacity: 0.85;
     transition: var(--transition);
+    transform: scaleX(1);
   };
 
   .project:hover .project-img::after {
-    opacity: 0;
+    transform: scaleX(0);
   };
 
   .project-info {
@@ -121,7 +122,7 @@ const Wrapper = styled.div`
     .project-img {
       height: 19rem;
     }
-  }
+  };
 
   @media screen and (min-width: 768px) {
     .project-img {
@@ -133,7 +134,7 @@ const Wrapper = styled.div`
     .project {
       grid-template-columns: repeat(12, 1fr);
       align-items: center;
-    }
+    };
 
     .project-img {
       grid-column: 1 / span 8;
@@ -141,7 +142,7 @@ const Wrapper = styled.div`
       height: 30rem;
       border-radius: var(--radius);
       box-shadow: var(--dark-shadow);
-    }
+    };
 
     .project-info {
       border-radius: var(--radius);
@@ -149,7 +150,7 @@ const Wrapper = styled.div`
       z-index: 1;
       grid-column: 5 /12;
       grid-row: 1 / 1;
-    }
+    };
 
     .project:nth-of-type(even) .project-img {
       grid-column: 5 / -1;
@@ -159,8 +160,8 @@ const Wrapper = styled.div`
       grid-column: 2 / span 7;
       grid-row: 1 / 1;
       text-align: left;
-    }
-  }
+    };
+  };
 `
 
 Project.propTypes = {

@@ -134,6 +134,23 @@ img {
   display: block;
 };
 
+.social-links {
+  margin-top: 2rem;
+  width: 15rem;
+  display: flex;
+  justify-content: space-between;
+};
+
+.social-link {
+  font-size: 1.75rem;
+  color: var(--clr-grey-1);
+  transition: var(--transition);
+};
+
+.social-link:hover {
+  color: var(--clr-primary-5);
+};
+
 /*
 ===============================
 global classes
@@ -141,8 +158,8 @@ global classes
 */
 
 .section {
-  padding: 5rem 0;
-  border-left: .6rem solid var(--clr-primary-5); 
+  padding: 5rem .5rem;
+  /* border-left: .6rem solid var(--clr-primary-5);  */
 };
 
 .section-center {
