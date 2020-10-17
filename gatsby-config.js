@@ -5,7 +5,7 @@
  */
 
 module.exports = {
-  /* Your site config here */
+  /* My site config here */
   plugins: [
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
@@ -19,7 +19,7 @@ module.exports = {
     {
       resolve: `gatsby-source-strapi`,
       options: {
-        apiURL: `http://localhost:1337`,
+        apiURL: `https://gatsby-portfolio-api-monika.herokuapp.com`,
         queryLimit: 1000, // Default to 100
         contentTypes: [`courses`, `projects`],
       },

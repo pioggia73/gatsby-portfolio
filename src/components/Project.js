@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Image from 'gatsby-image';
 import { FaGithubSquare, FaShareSquare } from 'react-icons/fa';
 
-const Project = ({description, url, title, github, stack_item, image, index}) => {
+const Project = ({description, page_url, title, github_url, stack, image, index}) => {
    return (
      <Wrapper>
        <article className="project">
@@ -14,15 +14,15 @@ const Project = ({description, url, title, github, stack_item, image, index}) =>
            <h3>{title}</h3>
            <p className="project-desc">{description}</p>
            <div className="project-stack">
-             {stack_item.map(item => {
+             {stack.map(item => {
                return <span key={item.id}>{item.title}</span>
              })}
            </div>
            <div className="project-links">
-             <a href={github} target="_blank" rel="noreferrer">
+             <a href={github_url} target="_blank" rel="noreferrer">
                <FaGithubSquare className="project-icon" />
              </a>
-             <a href={url} target="_blank" rel="noreferrer">
+             <a href={page_url} target="_blank" rel="noreferrer">
                <FaShareSquare className="project-icon" />
              </a>
            </div>

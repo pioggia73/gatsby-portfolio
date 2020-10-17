@@ -10,11 +10,12 @@ import Courses from './courses';
 export default ({data}) => {
 
   const {allStrapiProjects:{nodes:projects}} = data;
+  console.log(projects)
  
   return (
           <Layout>
             <Hero />
-            <Projects projects={projects} title='featured projects' showLink />
+            <Projects projects={projects} title='featured projects' showLink /> 
             <Courses />
           </Layout>
   )
@@ -25,10 +26,10 @@ export const query = graphql`
   {
     allStrapiProjects(filter: {featured: {eq: true}}) {
       nodes {
-        github
         id
         description
-        url
+        github_url
+        page_url
         title
         image {
           childImageSharp {
@@ -37,9 +38,9 @@ export const query = graphql`
             }
           }
         }
-        stack_item {
-          title
+        stack {
           id
+          title
         }
       }
     }

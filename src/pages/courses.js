@@ -12,23 +12,22 @@ const query = graphql`
       nodes {
         id
         name
-        course {
-          course_description
+        description {
+          course_title
+          course_ulr
           id
-          course_url
         }
       }
     }
   }
 `
-
 const Courses = () => {
 
-   const data = useStaticQuery(query)
-   const {allStrapiCourses: {nodes: courses},} = data 
-   const [value, setValue] = React.useState(0)
-   const {name, course} = courses[value]
-
+  const data = useStaticQuery(query)
+  const {allStrapiCourses: {nodes: courses},} = data 
+  const [value, setValue] = React.useState(0)
+  const {description, name, course_title} = courses[value]
+ 
    return (
       <Wrapper>
       <section className='section'>
@@ -37,31 +36,30 @@ const Courses = () => {
             {/*  buttons container*/}
             <div className='btn-container'>
             {courses.map((item, index) => {
-               return   <button key={index} 
-                                 className= {`courses-btn ${index===value && 'active-btn'}`}
-                                 onClick={()=> setValue(index)}
+               return   <button key={item.id} 
+                          className= {`courses-btn ${index===value && 'active-btn'}`}
+                          onClick={()=> setValue(index)}
                         >
                            {item.name}
                         </button>
-            }) }
+            }) } 
             </div>
 
             {/* courses container */}
             <article className='course-info'>
-               {course.map((item) => {
-                  return (
-                    <div key={item.id} className="course-description">
-                      <FaAngleDoubleRight className="course-icon" />
-                      <a
-                        href={item.course_url}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        <p>{item.course_description}</p>
-                      </a>
-                    </div>
-                  )
-               })}
+              {
+              description.map((item) => {
+                return <div key={item.id} className='course-description'>
+                          <FaAngleDoubleRight className='course-icon' />
+                          <a 
+                            href={item.course_ulr}
+                            target='_blank'
+                            rel="noreferrer"
+                          >
+                            <p>{item.course_title}</p>
+                          </a>
+                      </div>
+              })}
             </article>
          </div>
       </section>
