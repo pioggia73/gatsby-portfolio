@@ -31,7 +31,7 @@ export const query = graphql`
         image {
           childImageSharp {
             fluid {
-              ...ChildImageSharpFluid
+              ...childImageSharpFluid
             }
           }
         }
